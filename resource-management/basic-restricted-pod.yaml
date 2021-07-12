@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: stress-deployment
+  name: stress-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stress-deployment
+  template:
+    metadata:
+      labels:
+        app: stress-deployment
+    spec:
+      containers:
+      - args:
+        - --vm-keep
+        - --vm-bytes
+        - 1500m
+        - --timeout
+        - 600s
+        - --vm
+        - "3"
+        - --oomable
+        - --verbose
+        image: hande007/stress-ng
+        name: stress-deployment
+        resources:
+          limits:
+            cpu: 2200m
+            memory: 2G
+          requests:
+            cpu: "1"
+            memory: 1G

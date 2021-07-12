@@ -1,0 +1,12 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "es:ESHttp*"
+      ],
+      "Resource": "arn:aws:es:us-east-2:785667035757:domain/eksworkshop-logging",
+      "Effect": "Allow"
+    }
+  ]
+}
